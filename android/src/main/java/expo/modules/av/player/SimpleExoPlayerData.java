@@ -392,6 +392,14 @@ class SimpleExoPlayerData extends PlayerData
       case C.TYPE_DASH:
         return new DashMediaSource.Factory(new DefaultDashChunkSource.Factory(factory), factory).createMediaSource(MediaItem.fromUri(uri));
       case C.TYPE_HLS:
+        DefaultTrackSelector trackSelector = new DefaultTrackSelector(context);
+        DefaultTrackSelector.ParametersBuilder parametersBuilder = new DefaultTrackSelector.ParametersBuilder(context);
+        parametersBuilder.setPreferredTextLanguage("en");
+        DefaultTrackSelector.Parameters trackSelectorParameters = parametersBuilder.build();
+        trackSelector.setParameters(trackSelectorParameters);
+        mSimpleExoPlayer = new SimpleExoPlayer.Builder(context)
+            .setTrackSelector(trackSelector)
+            .build();
         return new HlsMediaSource.Factory(factory).createMediaSource(MediaItem.fromUri(uri));
       case C.TYPE_OTHER:
         return new ProgressiveMediaSource.Factory(factory).createMediaSource(MediaItem.fromUri(uri));

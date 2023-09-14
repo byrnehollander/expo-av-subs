@@ -1,13 +1,4 @@
-<p>
-  <a href="https://docs.expo.dev/versions/latest/sdk/av/">
-    <img
-      src="../../.github/resources/expo-av.svg"
-      alt="expo-av"
-      height="64" />
-  </a>
-</p>
-
-Expo universal module for Audio and Video playback
+# Modified Expo universal module for Audio and Video playback
 
 # API documentation
 
